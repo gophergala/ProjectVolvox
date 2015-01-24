@@ -1,7 +1,7 @@
 #Go-Tasky
-Tasky is a simple go framework that makes it easy to expose server side tasks with a RESTful api. Developed for the gophergala global hackathon.  
+Tasky is a simple go framework that makes it easy to expose server side tasks with a RESTful api. Developed for the gophergala global hackathon.
 
-NOTE: this is preliminary ideas and nothing is set in stone. Consider it brainstorming via readme.  
+NOTE: this is preliminary ideas and nothing is set in stone. Consider it brainstorming via readme.
 
 ##Basic Principles
 
@@ -10,13 +10,15 @@ Register a task with go-tasky that implements the worker interface and a set of 
 ##Routes
 
 GET /tasky/v1/workers - returns a list of available worker endpoints
-GET /tasky/v1/workers/{worker_name} - returns a description of the worker and it's usage  
+GET /tasky/v1/workers/{worker_name} - returns a description of the worker and it's usage
   
-GET /tasky/v1/{worker_name} - returns a list of available tasks to run  
-POST /tasky/v1/{worker_name} - Creates a new task to run with the worker  
+GET /tasky/v1/{worker_name} - returns a list of available tasks to run
+POST /tasky/v1/{worker_name} - Creates a new task to run with the worker  nd returns a unique task id
+GET /tasky/v1/{worker_name}/statistics - returns statistics for the worker like number of tasks performed, failure rate, avearge time take per task etc
 
-PUT /tasky/v1/{worker_name} - Modify the state of the task (cancel, pause, resume)  
-GET /tasky/v1/{worker_name}/status - returns the status of the worker  
+PUT /tasky/v1/task/{task_id} - Modify the state of the task (cancel, pause, resume, rerun)
+GET /tasky/v1/task/{task_id}/status - returns the status of the task
+GET /tasky/v1/task/{task_id}/statistics - returns the statistics about a task like time it took to complete the task etc
 
 ## Worker Interface
 The worker interface corresponds to an individual worker type
