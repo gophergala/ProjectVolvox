@@ -18,7 +18,7 @@ Use this tool when debugging or checking values on your system.
 
 ##Routes
 Workers:  
-POST /tasky/v1/worker/register - registers a worker with go-tasky
+POST /tasky/v1/worker/register - registers a worker with go-tasky   
 GET /tasky/v1/workers - returns a list of available worker endpoints   
 GET /tasky/v1/workers/{worker_name} - returns a list of available tasks to run  
 GET /tasky/v1/workers/{worker_name}/info - returns a description of the worker and it's usage   
