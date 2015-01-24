@@ -17,15 +17,21 @@ Register a task with go-tasky that implements the worker interface and a set of 
 Use this tool when debugging or checking values on your system.
 
 ##Routes
+Workers:  
+GET /tasky/v1/workers - returns a list of available worker endpoints   
+GET /tasky/v1/workers/{worker_name} - returns a list of available tasks to run
+GET /tasky/v1/workers/{worker_name}/info - returns a description of the worker and it's usage   
+POST /tasky/v1/workers/{worker_name} - Creates a new task to run with the worker and returns a unique task id  
 
-GET /tasky/v1/workers - returns a list of available worker endpoints  
-GET /tasky/v1/workers/{worker_name} - returns a description of the worker and it's usage  
-  
-GET /tasky/v1/{worker_name} - returns a list of available tasks to run  
-POST /tasky/v1/{worker_name} - Creates a new task to run with the worker  
+Tasks:  
+POST /tasky/v1/task - Create a new task. !!Should we model the task creation to be done here or from the worker?!!  
+GET /tasky/v1/task/{task_id} - Fetch details of a single task.  
+PUT /tasky/v1/task/{task_id} - Update the configuration of the task.  
 
-PUT /tasky/v1/{worker_name} - Modify the state of the task (cancel, pause, resume)  
-GET /tasky/v1/{worker_name}/status - returns the status of the worker  
+POST /tasky/v1/task/{task_id}/actions - Modify the state of the task (cancel, pause, resume, run)  
+GET /tasky/v1/task/{task_id}/status - returns the status of the task  
+GET /tasky/v1/task/{task_id}/statistics - returns the statistics about the task, such as time to complete task  
+
 
 ## Worker Interface
 The worker interface corresponds to an individual worker type
