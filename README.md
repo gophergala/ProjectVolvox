@@ -34,9 +34,9 @@ GET /tasky/v1/task/{task_id}/status - returns the status of the task
 GET /tasky/v1/task/{task_id}/statistics - returns the statistics about the task, such as time to complete task  
 
 
-PUT /tasky/v1/task/{task_id} - Modify the state of the task (cancel, pause, resume, rerun)
-GET /tasky/v1/task/{task_id}/status - returns the status of the task
-GET /tasky/v1/task/{task_id}/statistics - returns the statistics about a task like time it took to complete the task etc
+PUT /tasky/v1/task/{task_id} - Modify the state of the task (cancel, pause, resume, rerun)   
+GET /tasky/v1/task/{task_id}/status - returns the status of the task   
+GET /tasky/v1/task/{task_id}/statistics - returns the statistics about a task like time it took to complete the task etc   
 
 RuleChains:  
 For later, but used to chain multiple tasks together in an ordered fashion.  
